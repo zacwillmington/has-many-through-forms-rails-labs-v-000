@@ -1,5 +1,8 @@
 <%= @post.title %>
 <%= @post.content %>
+<% @post.categories.each do |category| %>
+    <%= category.name %>
+<% end %>
 
 <%= form_for @comment do |f| %>
     Comment: <%= f.text_field :content %>
@@ -13,7 +16,11 @@
     <%= f.submit %>
 <% end %>
 
+
 <% @post.comments.each do |comment| %>
-    <%= comment.user.username %> says: <%= comment.content %> in <%= @post.content %>
+    <%= comment.user.username %> says: <%= comment.content %>
 <% end %>
- <!-- NEED THESE :content, :post_id, :user_id, user_attributes:[:username]) -->
+
+<% @post.users.uniq.each do |user| %>
+    <%= link_to user.username, user_path(user)%>
+<% end %>
