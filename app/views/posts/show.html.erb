@@ -17,7 +17,6 @@
     <%= comment.user.username %> says: <%= comment.content %> in <%= @post.content %>
 <% end %> -->
 <% @post.comments.each do |comment| %>
-<% binding.pry%>
     <%= comment.user.username %> says: <%= comment.content %>
 <% end %>
  <!-- NEED THESE :content, :post_id, :user_id, user_attributes:[:username]) -->
