@@ -1,5 +1,8 @@
 <%= @post.title %>
 <%= @post.content %>
+<% @post.categories.each do |category| %>
+    <%= category.name %>
+<% end %>
 
 <%= form_for @comment do |f| %>
     Comment: <%= f.text_field :content %>
